@@ -1,7 +1,10 @@
+import MainLayout from "./components/layout/MainLayout";
+
 function App() {
   return (
     <>
-      <h1>My portfolio</h1>
+      <MainLayout />
+      {/* <h1>Nice to meet you</h1> */}
     </>
   );
 }
