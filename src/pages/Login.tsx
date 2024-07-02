@@ -7,27 +7,39 @@ import { useLoginMutation } from "../redux/features/auth/authApi";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { ApiError } from "../types/responseType";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 
 const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
+  console.log(errorMessage);
   const [login] = useLoginMutation();
   const navigate = useNavigate();
   const onSubmit = async (values: FieldValues) => {
     setErrorMessage("");
-    console.log(values);
     try {
       const loginInfo = {
         email: values.email,
         password: values.password,
       };
-      const res = await login(loginInfo).unwrap();
+      const res = await login(loginInfo);
       console.log(res);
-      if (res.success) {
-        localStorage.setItem("accessToken", res?.data?.accessToken);
+      if (res?.data?.success) {
+        localStorage.setItem("accessToken", res?.data?.data);
         toast.success("User login successfully");
         navigate("/");
+      } else if (res?.error) {
+        if ("data" in res.error) {
+          // Type assertion to access error data safely
+          const errorData = (res.error as FetchBaseQueryError).data as {
+            message?: string;
+          };
+          setErrorMessage(errorData?.message || "An unknown error occurred");
+        } else {
+          setErrorMessage("An unknown error occurred");
+        }
       }
     } catch (error) {
+      console.log(error);
       const apiError = error as ApiError;
       setErrorMessage(apiError?.data.errorMessage);
     }
