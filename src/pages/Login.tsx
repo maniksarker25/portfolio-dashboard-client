@@ -5,7 +5,9 @@ import { useState } from "react";
 
 const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
-  const onSubmit = async () => {};
+  const onSubmit = async () => {
+    setErrorMessage("");
+  };
   return (
     <div>
       {" "}
