@@ -1,10 +1,12 @@
 import MainLayout from "./components/layout/MainLayout";
+import ProtectedRoute from "./components/layout/ProtectedRoute";
 
 function App() {
   return (
     <>
-      <MainLayout />
-      {/* <h1>Nice to meet you</h1> */}
+      <ProtectedRoute>
+        <MainLayout />
+      </ProtectedRoute>
     </>
   );
 }
