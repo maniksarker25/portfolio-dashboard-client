@@ -5,8 +5,9 @@ type TInputProps = {
   name: string;
   label: string;
   notRequired?: boolean;
+  width?: string;
 };
-const PInput = ({ type, name, label, notRequired }: TInputProps) => {
+const PInput = ({ type, name, label, notRequired, width }: TInputProps) => {
   const {
     control,
     formState: { errors },
@@ -26,7 +27,7 @@ const PInput = ({ type, name, label, notRequired }: TInputProps) => {
         render={({ field }) => (
           <div>
             <Input
-              style={{ width: "350px" }}
+              style={{ width: width || "350px" }}
               placeholder={`Enter ${label || name}`}
               {...field}
               type={type}

@@ -1,14 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Row } from "antd";
+import { Button, Row } from "antd";
 import { useState } from "react";
 import { compressAndConvertToBase64 } from "../../../config/base64";
 import Swal from "sweetalert2";
 import { useDropzone } from "react-dropzone";
+import PForm from "../../form/PFrom";
+import { FieldValues } from "react-hook-form";
+import PInput from "../../form/PInput";
 const AddProjectContainer = () => {
   const [projectImages, setProjectImages] = useState<string[]>([]);
   const maxImages: number = 10;
   const minImages: number = 5;
-  // carusel images code here
+
+  // handle project submit
+  const handleProjectSubmit = async (values: FieldValues) => {};
+  // project images code here
   const onDrop = async (acceptedFiles: any) => {
     if (projectImages.length + acceptedFiles.length <= maxImages) {
       let fileError = false;
@@ -94,6 +100,93 @@ const AddProjectContainer = () => {
               </p>
             )}
           </div>
+        </div>
+        <div>
+          <PForm onSubmit={handleProjectSubmit}>
+            <div className="md:flex  gap-4">
+              <PInput type={"text"} name={"title"} label={"Title"} />
+              <PInput
+                type={"text"}
+                name={"shortDescription"}
+                label={"Short Description"}
+              />
+            </div>
+            <div>
+              <PInput
+                type={"text"}
+                name={"technologyUsed"}
+                label={"Technology Used"}
+                width={"100%"}
+              />
+            </div>
+            <div>
+              <PInput
+                type={"text"}
+                name={"fontEndRepo"}
+                label={"Frontend Repository"}
+                width={"100%"}
+              />
+            </div>
+            <div>
+              <PInput
+                type={"text"}
+                name={"backEndRepo"}
+                label={"Backend Repository"}
+                width={"100%"}
+              />
+            </div>
+            <div style={{ width: "100%" }}>
+              <PInput
+                type={"text"}
+                name={"liveLink"}
+                label={"Live Link"}
+                width={"100%"}
+              />
+            </div>
+            <div style={{ width: "100%" }}>
+              <PInput
+                type={"text"}
+                name={"featureOne"}
+                label={"Feature One"}
+                width={"100%"}
+              />
+            </div>
+            <div style={{ width: "100%" }}>
+              <PInput
+                type={"text"}
+                name={"featureTwo"}
+                label={"Feature Two"}
+                width={"100%"}
+              />
+            </div>
+            <div style={{ width: "100%" }}>
+              <PInput
+                type={"text"}
+                name={"featureThree"}
+                label={"Feature Three"}
+                width={"100%"}
+              />
+            </div>
+            <div style={{ width: "100%" }}>
+              <PInput
+                type={"text"}
+                name={"note"}
+                label={"Note If Have"}
+                width={"100%"}
+              />
+            </div>
+            <div>
+              <Button
+                style={{
+                  backgroundColor: "#1677FF",
+                  color: "white",
+                }}
+                htmlType="submit"
+              >
+                Submit
+              </Button>
+            </div>
+          </PForm>
         </div>
       </Row>
     </div>
