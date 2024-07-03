@@ -1,5 +1,11 @@
+import BlogContainer from "../components/ui/blogs/BlogContainer";
+
 const Blogs = () => {
-  return <div>Blogs</div>;
+  return (
+    <div>
+      <BlogContainer />
+    </div>
+  );
 };
 
 export default Blogs;
