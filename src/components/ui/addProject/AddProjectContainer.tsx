@@ -7,13 +7,50 @@ import { useDropzone } from "react-dropzone";
 import PForm from "../../form/PFrom";
 import { FieldValues } from "react-hook-form";
 import PInput from "../../form/PInput";
+import { useAddProjectMutation } from "../../../redux/features/project/projectApi";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
+import { ApiError } from "../../../types/responseType";
 const AddProjectContainer = () => {
+  const [errorMessage, setErrorMessage] = useState("");
   const [projectImages, setProjectImages] = useState<string[]>([]);
+  const [addProject, { isLoading }] = useAddProjectMutation();
   const maxImages: number = 10;
   const minImages: number = 5;
+  const navigate = useNavigate();
 
   // handle project submit
-  const handleProjectSubmit = async (values: FieldValues) => {};
+  const handleProjectSubmit = async (values: FieldValues) => {
+    const projectData = {
+      ...values,
+      images: projectImages,
+    };
+    setErrorMessage("");
+    try {
+      const res = await addProject(projectData);
+      console.log(res);
+      if (res?.data?.success) {
+        localStorage.setItem("accessToken", res?.data?.data);
+        toast.success("Project added successfully");
+        navigate("/projects");
+      } else if (res?.error) {
+        if ("data" in res.error) {
+          // Type assertion to access error data safely
+          const errorData = (res.error as FetchBaseQueryError).data as {
+            message?: string;
+          };
+          setErrorMessage(errorData?.message || "An unknown error occurred");
+        } else {
+          setErrorMessage("An unknown error occurred");
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      const apiError = error as ApiError;
+      setErrorMessage(apiError?.data.errorMessage || "Something went wrong");
+    }
+  };
   // project images code here
   const onDrop = async (acceptedFiles: any) => {
     if (projectImages.length + acceptedFiles.length <= maxImages) {
@@ -122,7 +159,7 @@ const AddProjectContainer = () => {
             <div>
               <PInput
                 type={"text"}
-                name={"fontEndRepo"}
+                name={"frontEndRepo"}
                 label={"Frontend Repository"}
                 width={"100%"}
               />
@@ -173,6 +210,7 @@ const AddProjectContainer = () => {
                 name={"note"}
                 label={"Note If Have"}
                 width={"100%"}
+                notRequired
               />
             </div>
             <div>
@@ -182,8 +220,9 @@ const AddProjectContainer = () => {
                   color: "white",
                 }}
                 htmlType="submit"
+                disabled={isLoading}
               >
-                Submit
+                {isLoading ? "Submitting" : "Submit"}
               </Button>
             </div>
           </PForm>
