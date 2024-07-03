@@ -13,7 +13,7 @@ import { ApiError } from "../../../types/responseType";
 const AddSkillModal = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [imageUrl, setImageUrl] = useState<string>("");
-  const [addSkill] = useAddSkillMutation();
+  const [addSkill, { isLoading }] = useAddSkillMutation();
   const showModal = () => {
     setIsModalOpen(true);
   };
@@ -60,7 +60,7 @@ const AddSkillModal = () => {
   return (
     <>
       <Button type="primary" onClick={showModal}>
-        Open Modal
+        Add New Skill
       </Button>
       <Modal
         title="Add Skill"
@@ -91,7 +91,7 @@ const AddSkillModal = () => {
                 }}
                 htmlType="submit"
               >
-                Submit
+                {isLoading ? "Submitting" : "Submit"}
               </Button>
             </PForm>
           </div>

@@ -9,8 +9,18 @@ const authApi = baseApi.injectEndpoints({
           body: data,
         };
       },
+      invalidatesTags: ["skill"],
+    }),
+    getAllSkill: builder.query({
+      query: () => {
+        return {
+          url: "skills",
+          method: "GET",
+        };
+      },
+      providesTags: ["skill"],
     }),
   }),
 });
 
-export const { useAddSkillMutation } = authApi;
+export const { useAddSkillMutation, useGetAllSkillQuery } = authApi;
