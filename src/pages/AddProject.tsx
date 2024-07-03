@@ -1,5 +1,11 @@
+import AddProjectContainer from "../components/ui/addProject/AddProjectContainer";
+
 const AddProject = () => {
-  return <div>add project</div>;
+  return (
+    <div>
+      <AddProjectContainer />
+    </div>
+  );
 };
 
 export default AddProject;
