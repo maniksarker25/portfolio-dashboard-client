@@ -10,8 +10,15 @@ const projectApi = baseApi.injectEndpoints({
           body: data,
         };
       },
+      invalidatesTags: ["project"],
+    }),
+    getAllProject: builder.query({
+      query: () => ({
+        url: "projects",
+        method: "GET",
+      }),
     }),
   }),
 });
 
-export const { useAddProjectMutation } = projectApi;
+export const { useAddProjectMutation, useGetAllProjectQuery } = projectApi;

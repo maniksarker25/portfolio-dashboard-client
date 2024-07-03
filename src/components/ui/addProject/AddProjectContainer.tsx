@@ -213,6 +213,11 @@ const AddProjectContainer = () => {
                 notRequired
               />
             </div>
+            {errorMessage && (
+              <p style={{ color: "red", marginBottom: "7px" }}>
+                {errorMessage}
+              </p>
+            )}
             <div>
               <Button
                 style={{

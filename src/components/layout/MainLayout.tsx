@@ -1,7 +1,7 @@
 import { Layout, Menu, MenuProps } from "antd";
 
 import { NavLink, Outlet } from "react-router-dom";
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Sider } = Layout;
 const MainLayout = () => {
   const portfolioItems: MenuProps["items"] = [
     {
@@ -92,9 +92,6 @@ const MainLayout = () => {
             <Outlet />
           </div>
         </Content>
-        <Footer style={{ textAlign: "center" }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
-        </Footer>
       </Layout>
     </Layout>
   );
