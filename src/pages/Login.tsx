@@ -41,7 +41,7 @@ const Login = () => {
     } catch (error) {
       console.log(error);
       const apiError = error as ApiError;
-      setErrorMessage(apiError?.data.errorMessage);
+      setErrorMessage(apiError?.data.errorMessage || "Something went wrong");
     }
   };
   return (

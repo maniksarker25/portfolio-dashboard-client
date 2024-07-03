@@ -1,5 +1,11 @@
+import SkillsContainer from "../components/ui/skills/SkillsContainer";
+
 const Skills = () => {
-  return <div>skills</div>;
+  return (
+    <div>
+      <SkillsContainer />
+    </div>
+  );
 };
 
 export default Skills;
