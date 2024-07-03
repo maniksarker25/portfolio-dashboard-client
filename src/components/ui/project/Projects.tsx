@@ -17,7 +17,8 @@ import { Button } from "antd";
 import { useDeleteProjectMutation } from "../../../redux/features/project/projectApi";
 import toast from "react-hot-toast";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
-const Projects = ({ projects }: { projects: any }) => {
+import { TProject } from "../../../types/projectType";
+const Projects = ({ projects }: { projects: TProject[] }) => {
   const pagination = {
     clickable: true,
     renderBullet: function (index: number, className: any) {

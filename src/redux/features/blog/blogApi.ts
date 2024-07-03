@@ -10,8 +10,16 @@ const blogApi = baseApi.injectEndpoints({
           body: data,
         };
       },
+      invalidatesTags: ["blogs"],
+    }),
+    getAllBlogs: builder.query({
+      query: () => ({
+        url: "blogs",
+        method: "GET",
+      }),
+      providesTags: ["blogs"],
     }),
   }),
 });
 
-export const { useAddBlogMutation } = blogApi;
+export const { useAddBlogMutation, useGetAllBlogsQuery } = blogApi;
