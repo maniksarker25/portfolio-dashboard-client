@@ -78,7 +78,7 @@ const AddSkillModal = () => {
                 name="category"
                 label="Category"
                 options={[
-                  { value: "expert", label: "Expert" },
+                  { value: "ex pert", label: "Expert" },
                   { value: "comfortable", label: "Comfortable" },
                   { value: "familiar", label: "Familiar" },
                   { value: "tools", label: "Tools" },
