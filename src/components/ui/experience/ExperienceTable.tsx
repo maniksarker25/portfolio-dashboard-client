@@ -6,8 +6,8 @@ import { TExperience } from "../../../types/experienceType";
 import formattedDate from "../../../utils/dateFormator";
 
 const ExperienceTable = ({ data }: { data: TExperience[] }) => {
-  const [deleteSkill] = useDeleteSkillMutation();
-  const handleDeleteSkill = async (id: string) => {
+  const [deleteExperience] = useDeleteSkillMutation();
+  const handleDeleteExperience = async (id: string) => {
     try {
       const res = await deleteSkill(id);
       console.log(res);
@@ -53,7 +53,7 @@ const ExperienceTable = ({ data }: { data: TExperience[] }) => {
                 {formattedDate(item?.endDate) || "Currently Working"}
               </td>
               <td className="py-2 px-4 border-b">
-                <Button onClick={() => handleDeleteSkill(item?._id)}>
+                <Button onClick={() => handleDeleteExperience(item?._id)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"

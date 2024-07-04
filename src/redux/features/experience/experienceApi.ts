@@ -19,8 +19,18 @@ const experienceApi = baseApi.injectEndpoints({
       }),
       providesTags: ["experience"],
     }),
+    deleteExperience: builder.mutation({
+      query: (id) => ({
+        url: `experiences/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["experience"],
+    }),
   }),
 });
 
-export const { useCreateExperienceMutation, useGetAllExperienceQuery } =
-  experienceApi;
+export const {
+  useCreateExperienceMutation,
+  useGetAllExperienceQuery,
+  useDeleteExperienceMutation,
+} = experienceApi;
