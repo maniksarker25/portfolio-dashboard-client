@@ -1,5 +1,11 @@
+import AddExperienceModal from "./AddExperienceModal";
+
 const ExperienceContainer = () => {
-  return <div>experience contianer</div>;
+  return (
+    <div>
+      <AddExperienceModal />
+    </div>
+  );
 };
 
 export default ExperienceContainer;
