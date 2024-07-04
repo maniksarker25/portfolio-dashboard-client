@@ -39,7 +39,7 @@ const SkillTable = ({ data }: { data: TSkill[] }) => {
       <table className="min-w-full w-11/12 bg-white border border-gray-300 overflow-scroll">
         <thead>
           <tr>
-            <th>Image</th>
+            <th className="py-2 px-1 border-b">Image</th>
             <th className="py-2 px-1 border-b">Title</th>
             <th className="py-2 px-1 border-b">Category</th>
             <th className="py-2 px-1 border-b">Action</th>
