@@ -84,7 +84,9 @@ const AddProjectContainer = () => {
     <div>
       <Row justify={"center"}>
         <div className="mb-4 w-full max-w-screen-lg">
-          <h2 className="my-4 text-xl pb-2 border-b-2">Add Project Images</h2>
+          <h2 className="my-4 text-xl pb-2 border-b-2">
+            Add Project Images(minimum 5 image )
+          </h2>
 
           <div>
             <div

@@ -64,7 +64,7 @@ const AddBlogModal = () => {
         Add New Blog
       </Button>
       <Modal
-        title="Add Skill"
+        title="Add Blog"
         open={isModalOpen}
         onOk={handleOk}
         footer={""}
