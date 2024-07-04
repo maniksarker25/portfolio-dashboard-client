@@ -21,9 +21,9 @@ const authApi = baseApi.injectEndpoints({
       providesTags: ["skill"],
     }),
     deleteSkill: builder.mutation({
-      query: () => {
+      query: (id) => {
         return {
-          url: "skills",
+          url: `skills/${id}`,
           method: "DELETE",
         };
       },
