@@ -20,7 +20,20 @@ const authApi = baseApi.injectEndpoints({
       },
       providesTags: ["skill"],
     }),
+    deleteSkill: builder.mutation({
+      query: () => {
+        return {
+          url: "skills",
+          method: "DELETE",
+        };
+      },
+      invalidatesTags: ["skill"],
+    }),
   }),
 });
 
-export const { useAddSkillMutation, useGetAllSkillQuery } = authApi;
+export const {
+  useAddSkillMutation,
+  useGetAllSkillQuery,
+  useDeleteSkillMutation,
+} = authApi;

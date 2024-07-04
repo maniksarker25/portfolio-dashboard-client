@@ -1,6 +1,6 @@
 const LoadingCard = () => {
   return (
-    <div className="w-full mx-auto p-4 rounded-md shadow-md bg-white animate-pulse">
+    <div className="w-full mx-auto p-4 rounded-md shadow-md bg-white animate-pulse mt-4">
       <div className="w-full h-52 bg-gray-200 rounded-md"></div>
       <div className="mt-4">
         <div className="w-3/5 h-8 bg-gray-200 rounded-md mb-2"></div>

@@ -4,13 +4,13 @@ import { NavLink, Outlet } from "react-router-dom";
 const { Header, Content, Sider } = Layout;
 const MainLayout = () => {
   const portfolioItems: MenuProps["items"] = [
-    {
-      key: "1",
-      label: <NavLink to={"/"}>Basic Information</NavLink>,
-    },
+    // {
+    //   key: "1",
+    //   label: <NavLink to={"/"}>Basic Information</NavLink>,
+    // },
     {
       key: "2",
-      label: <NavLink to={"skills"}>Skills</NavLink>,
+      label: <NavLink to={"/"}>Skills</NavLink>,
     },
     {
       key: "3",
@@ -22,6 +22,10 @@ const MainLayout = () => {
     },
     {
       key: "5",
+      label: <NavLink to={"experience"}>Experience</NavLink>,
+    },
+    {
+      key: "6",
       label: <NavLink to={"blogs"}>Blogs</NavLink>,
     },
   ];
