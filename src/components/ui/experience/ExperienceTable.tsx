@@ -1,18 +1,18 @@
 import { Button } from "antd";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import toast from "react-hot-toast";
-import { useDeleteSkillMutation } from "../../../redux/features/skill/skillApi";
 import { TExperience } from "../../../types/experienceType";
 import formattedDate from "../../../utils/dateFormator";
+import { useDeleteExperienceMutation } from "../../../redux/features/experience/experienceApi";
 
 const ExperienceTable = ({ data }: { data: TExperience[] }) => {
-  const [deleteExperience] = useDeleteSkillMutation();
+  const [deleteExperience] = useDeleteExperienceMutation();
   const handleDeleteExperience = async (id: string) => {
     try {
-      const res = await deleteSkill(id);
+      const res = await deleteExperience(id);
       console.log(res);
       if (res?.data?.success) {
-        toast.success("Skill deleted successfully");
+        toast.success("Experience  deleted successfully");
       } else if (res?.error) {
         if ("data" in res.error) {
           // Type assertion to access error data safely
