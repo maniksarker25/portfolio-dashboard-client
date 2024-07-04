@@ -10,8 +10,17 @@ const experienceApi = baseApi.injectEndpoints({
           body: data,
         };
       },
+      invalidatesTags: ["experience"],
+    }),
+    getAllExperience: builder.query({
+      query: () => ({
+        url: "experiences",
+        method: "GET",
+      }),
+      providesTags: ["experience"],
     }),
   }),
 });
 
-export const { useCreateExperienceMutation } = experienceApi;
+export const { useCreateExperienceMutation, useGetAllExperienceQuery } =
+  experienceApi;

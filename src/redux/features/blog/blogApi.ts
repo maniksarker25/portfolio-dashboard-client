@@ -10,14 +10,14 @@ const blogApi = baseApi.injectEndpoints({
           body: data,
         };
       },
-      invalidatesTags: ["blogs"],
+      invalidatesTags: ["blog"],
     }),
     getAllBlogs: builder.query({
       query: () => ({
         url: "blogs",
         method: "GET",
       }),
-      providesTags: ["blogs"],
+      providesTags: ["blog"],
     }),
   }),
 });
