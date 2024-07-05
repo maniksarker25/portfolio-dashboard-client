@@ -1,6 +1,6 @@
-import { Layout, Menu, MenuProps } from "antd";
+import { Button, Layout, Menu, MenuProps } from "antd";
 
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 const { Header, Content, Sider } = Layout;
 const MainLayout = () => {
   const portfolioItems: MenuProps["items"] = [
@@ -29,6 +29,12 @@ const MainLayout = () => {
       label: <NavLink to={"blogs"}>Blogs</NavLink>,
     },
   ];
+  const navigate = useNavigate();
+  const token = localStorage.getItem("accessToken");
+  const handleLogout = () => {
+    localStorage.removeItem("accessToken");
+    navigate("/login");
+  };
   return (
     <Layout style={{ height: "100%", minHeight: "100vh" }}>
       <Sider
@@ -85,7 +91,27 @@ const MainLayout = () => {
         />
       </Sider>
       <Layout>
-        <Header style={{ padding: 0 }} />
+        <Header style={{ padding: 0 }}>
+          {token && (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "end",
+                alignItems: "center",
+                justifyItems: "center",
+                marginTop: "15px",
+                marginRight: "5px",
+              }}
+            >
+              <Button
+                style={{ backgroundColor: "red", color: "white" }}
+                onClick={handleLogout}
+              >
+                Logout
+              </Button>
+            </div>
+          )}
+        </Header>
         <Content style={{ margin: "24px 16px 0" }}>
           <div
             style={{
