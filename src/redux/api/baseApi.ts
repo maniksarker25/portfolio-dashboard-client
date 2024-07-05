@@ -3,7 +3,7 @@ import { fetchBaseQuery } from "@reduxjs/toolkit/query";
 import { createApi } from "@reduxjs/toolkit/query/react";
 // some changes =-----------------------
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:5000/api",
+  baseUrl: "https://portfolio-backend-one-gamma.vercel.app/api",
 
   prepareHeaders: (headers) => {
     const token = localStorage.getItem("accessToken");

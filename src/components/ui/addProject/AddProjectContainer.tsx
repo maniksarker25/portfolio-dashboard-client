@@ -12,6 +12,7 @@ import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { FetchBaseQueryError } from "@reduxjs/toolkit/query";
 import { ApiError } from "../../../types/responseType";
+import PTextArea from "../../form/PTextArea";
 const AddProjectContainer = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [projectImages, setProjectImages] = useState<string[]>([]);
@@ -29,9 +30,7 @@ const AddProjectContainer = () => {
     setErrorMessage("");
     try {
       const res = await addProject(projectData);
-      console.log(res);
       if (res?.data?.success) {
-        localStorage.setItem("accessToken", res?.data?.data);
         toast.success("Project added successfully");
         navigate("/projects");
       } else if (res?.error) {
@@ -183,32 +182,28 @@ const AddProjectContainer = () => {
               />
             </div>
             <div style={{ width: "100%" }}>
-              <PInput
-                type={"text"}
+              <PTextArea
                 name={"featureOne"}
                 label={"Feature One"}
                 width={"100%"}
               />
             </div>
             <div style={{ width: "100%" }}>
-              <PInput
-                type={"text"}
+              <PTextArea
                 name={"featureTwo"}
                 label={"Feature Two"}
                 width={"100%"}
               />
             </div>
             <div style={{ width: "100%" }}>
-              <PInput
-                type={"text"}
+              <PTextArea
                 name={"featureThree"}
                 label={"Feature Three"}
                 width={"100%"}
               />
             </div>
             <div style={{ width: "100%" }}>
-              <PInput
-                type={"text"}
+              <PTextArea
                 name={"note"}
                 label={"Note If Have"}
                 width={"100%"}
