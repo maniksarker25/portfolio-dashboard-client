@@ -1,4 +1,7 @@
-function formattedDate(isoDate: Date | string): string {
+function formattedDate(isoDate: Date | string): string | null {
+  if (!isoDate) {
+    return null;
+  }
   const date = new Date(isoDate);
 
   // Check for invalid date

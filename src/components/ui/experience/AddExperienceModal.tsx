@@ -80,6 +80,7 @@ const AddExperienceModal = () => {
               <PDatePicker
                 name="endDate"
                 label="Select End Date (If currently working ignore it)"
+                required={false}
               />
 
               <Button

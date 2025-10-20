@@ -80,7 +80,10 @@ const AddSkillModal = () => {
                 options={[
                   { value: "frontend", label: "Frontend" },
                   { value: "backend", label: "Backend" },
-                  { value: "tools", label: "Tools" },
+                  {
+                    value: "databaseAndDeployment",
+                    label: "Database & Deployment",
+                  },
                 ]}
               />
               <Button

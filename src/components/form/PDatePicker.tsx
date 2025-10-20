@@ -4,9 +4,10 @@ import { Controller, useFormContext } from "react-hook-form";
 type TDatePickerProps = {
   name: string;
   label: string;
+  required?: boolean;
 };
 
-const PDatePicker = ({ name, label }: TDatePickerProps) => {
+const PDatePicker = ({ name, label, required = true }: TDatePickerProps) => {
   const {
     control,
     formState: { errors },
@@ -19,12 +20,14 @@ const PDatePicker = ({ name, label }: TDatePickerProps) => {
         name={name}
         control={control}
         rules={{ required: `Please select ${label || name}` }}
+        // rules={{ required: required }}
         render={({ field }) => (
           <div>
             <DatePicker
               style={{ width: "350px" }}
               {...field}
               placeholder={`Select ${label || name}`}
+              required={required}
             />
             {errors[name] && (
               <p style={{ color: "red" }}>
