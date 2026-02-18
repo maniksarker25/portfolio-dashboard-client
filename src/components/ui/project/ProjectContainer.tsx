@@ -6,7 +6,7 @@ const ProjectContainer = () => {
   const { data, isLoading } = useGetAllProjectQuery(undefined);
   const projects = data?.data;
   return (
-    <div className="max-w-screen-md mx-auto">
+    <div>
       {isLoading ? (
         <LoadingCard />
       ) : projects?.length > 0 ? (
