@@ -60,7 +60,7 @@ const projectApi = baseApi.injectEndpoints({
         url: `projects/${id}`,
         method: "GET",
       }),
-      providesTags: (result, error, id) => [{ type: "project", id }],
+      providesTags: (_result, _error, id) => [{ type: "project", id }],
     }),
     // Added: Update Project
     updateProject: builder.mutation({
